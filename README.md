@@ -21,28 +21,28 @@ Docker compose running proxy and bandwidth sharing applications : Honeygain, Ear
     - Example output: ```sdk-node-0123456789abcdeffedcba9876543210```
 - Update .env file with the Earnapp UUID that was just generated.
 
+
 Start stack (first run only):
 
-- Start stack : sudo docker compose up -d (Make sure to be in the correct directory)
+- Start stack: sudo docker compose up -d (Make sure to be in the correct directory)
 
-After stack has started you will need to register the UUID with Earnapp using the following URL.
+- After stack has started you will need to register the UUID with Earnapp using the following URL.
 
-https://earnapp.com/r/UUID
+- https://earnapp.com/r/UUID
 
-Example url
-https://earnapp.com/r/sdk-node-0123456789abcdeffedcba9876543210
+- Example url: ```https://earnapp.com/r/sdk-node-0123456789abcdeffedcba9876543210``
 
 After first run you can use 
 
 Start/stop procedure:
 
-- Start stack : sudo docker compose up -d (Make sure to be in the correct directory)
-- Stop stack : sudo docker-compose down (Make sure to be in the correct directory)
+- Start stack: sudo docker compose up -d (Make sure to be in the correct directory)
+- Stop stack: sudo docker-compose down (Make sure to be in the correct directory)
 
-Compatibility :
+Compatibility:
 
 This Docker Stack should work on anything that may have docker installed. In particular, it has been tested on: 
 | | Windows 11 x86_64\amd64 | Linux Ubuntu x86_64\amd64 | Raspbian OS arm64 | Synology NAS VM (Ubuntu 22) | Synology NAS Container Manager | 
 |  :---: |  :---: |  :---: |  :---: | :---: | :---: |
-| Tested | :green_circle: | :green_circle: | :green_circle: | :green_circle: | green_circle:|
+| Tested | :green_circle: | :green_circle: | :green_circle: | :green_circle: | :green_circle:|
 | on device | Desktop/Laptop PC | Desktop/Laptop PC | Raspberry Pi3b+/Pi4 | DS1522+ | DS1522+ |

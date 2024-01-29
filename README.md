@@ -45,4 +45,4 @@ This Docker Stack should work on anything that may have docker installed. In par
 | | Windows 11 x86_64\amd64 | Linux Ubuntu x86_64\amd64 | Raspbian OS arm64 | Synology NAS VM (Ubuntu 22) | Synology NAS Container Manager | 
 |  :---: |  :---: |  :---: |  :---: | :---: | :---: |
 | Tested | :green_circle: | :green_circle: | :green_circle: | :green_circle: | :green_circle:|
-| on device | Desktop/Laptop PC | Desktop/Laptop PC | Raspberry Pi3b+/Pi4 | DS1522+ | DS1522+ |
+| on device | Desktop/Laptop PC | Desktop/Laptop PC | Raspberry Pi3b+/Pi4 | DS1522+ | DS1522+ (.env is not used. Variables hardcoded into docker compose and then used to run a project.) |

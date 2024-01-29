@@ -1,0 +1,84 @@
+version: '3.8'
+services:
+    # HoneyGain
+    # variables to define in .env file :
+    # HONEYGAIN_EMAIL : Your Honeygain account email
+    # HONEYGAIN_PASSWD : Your Honeygain account password 
+    # DEVICE_NAME : This computer name
+    Honeygain:
+        image: honeygain/honeygain
+        command: -tou-accept -email $HONEYGAIN_EMAIL -pass '$HONEYGAIN_PASSWD' -device $DEVICE_NAME
+        restart: always
+    #End of HoneyGain section
+
+    # IproyalPawns
+    # variables to define in .env file :
+    # IPROYALPAWNS_EMAIL : Your IproyalPawns account email
+    # IPROYALPAWNS_PASSWD : Your IproyalPawns account password 
+    # DEVICE_NAME : This computer name
+    IproyalPawns:
+        image: iproyal/pawns-cli:latest
+        command: -email=$IPROYALPAWNS_EMAIL -password='$IPROYALPAWNS_PASSWD' -device-name=$DEVICE_NAME -accept-tos
+        restart: always
+    #End of IproyalPawns section
+
+    # Packetstream
+    # variables to define in .env file :
+    # PACKETSTREAM_CID : Your Packetstream CID
+    Packetstream_PsClient:
+        image: packetstream/psclient:latest
+        restart: always
+        environment:
+            - CID=$PACKETSTREAM_CID
+            - PS_IS_DOCKER='true'
+        ipc: private
+        deploy:
+            resources:
+                limits:
+                    cpus: '.25'
+    #End of Packetstream section
+    
+    # Repocket
+    # variables to define in .env file :
+    # RP_EMAIL : Your application mail 
+    # RP_API_KEY : Your application api key
+    Repocket:
+        image: repocket/repocket:latest
+        restart: always
+        environment:
+          - RP_EMAIL=$RP_EMAIL
+          - RP_API_KEY=$RP_API_KEY
+    #End of Repocket section
+
+    # Earnapp
+    # variables to define in .env file :
+    # EARNAPP_DEVICE_ID : SDK Node ID
+    Earnapp:
+        image: madereddy/earnapp:latest
+        volumes:
+            - earnapp-data:/etc/earnapp
+        restart: always
+        environment:
+            - EARNAPP_UUID=$EARNAPP_DEVICE_ID
+    #End of Earnapp section
+
+    # EarnFM
+    # variables to define in .env file :
+    # EARNFM : Your EarnFM API Key
+    EarnFm_Client:
+        image: earnfm/earnfm-client:latest
+        restart: always
+        environment:
+            - EARNFM_TOKEN=$EARNFM_APIKEY
+    #End of EarnFM section
+
+    # Watchtower
+    # Update containers on a schedule
+    watchtower:
+        container_name: watchtower
+        image: containrrr/watchtower
+        command: [--schedule, "0 0 4 * * *",--include-stopped,--cleanup]
+        volumes:
+        - /var/run/docker.sock:/var/run/docker.sock # control other containers
+        restart: unless-stopped
+    #End of Watchtower section

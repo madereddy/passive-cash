@@ -30,7 +30,7 @@ Start stack (first run only):
 
 - https://earnapp.com/r/UUID
 
-- Example url: ```https://earnapp.com/r/sdk-node-0123456789abcdeffedcba9876543210``
+- Example url: ```https://earnapp.com/r/sdk-node-0123456789abcdeffedcba9876543210```
 
 After first run you can use 
 
